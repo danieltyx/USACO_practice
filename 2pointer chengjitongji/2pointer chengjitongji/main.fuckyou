@@ -1,0 +1,42 @@
+// 给出长度为m的两个数组a和b，从中各自取一个数乘起来可以得到n^2 个乘积，求小于K的有多少个  qwq
+
+
+#include"bits/stdc++.h"
+using namespace std;
+int n,k;
+int a[10001];
+int b[10001];
+int sum=0;
+void tp()
+{
+    int l=0;
+    int r=n;
+    while(1)
+    {
+        if(r==0||l==n)break;
+        if(a[l]*b[r]>k)
+        {
+            r--;
+        }
+        else if(a[l]*b[r]<=k)
+        {
+            sum+=l;
+            l++;
+        }
+    }
+}
+int main()
+{
+    cin>>n>>k;
+    for(int i=1;i<=n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=1;i<=n;i++)
+    {
+        scanf("%d",&b[i]);
+    }
+    tp();
+    cout<<sum<<endl;
+    return 0;
+}
